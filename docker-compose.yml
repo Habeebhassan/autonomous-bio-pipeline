@@ -1,0 +1,13 @@
+services:
+  bio-pipeline:
+    build: .
+    # Mount the local directory to the container
+    volumes:
+      - .:/app
+      # Ensure data persists locally
+      - ./data:/app/data
+    # Load API keys securely
+    env_file:
+      - .env
+    # Keep container running so we can execute commands
+    command: tail -f /dev/null

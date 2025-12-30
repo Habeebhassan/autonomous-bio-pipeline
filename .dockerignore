@@ -1,0 +1,14 @@
+# Ignore git data
+.git
+.gitignore
+
+# Ignore local python environments
+venv/
+env/
+__pycache__/
+
+# Ignore data (We will MOUNT this instead of copying it)
+data/
+
+# Ignore secrets
+.env

@@ -1,0 +1,11 @@
+# Core Logic
+google-generativeai     # For interacting with Gemini models
+biopython               # For Entrez (NCBI) and sequence handling
+pandas                  # For data manipulation and reporting
+
+# Environment & Security
+python-dotenv           # To load API keys from .env file securely
+
+# Utilities
+tqdm                    # (Optional) Progress bars for downloads/processing
+requests                # For standard HTTP requests if Biopython needs help

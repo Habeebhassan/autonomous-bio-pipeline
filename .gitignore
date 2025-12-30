@@ -1,0 +1,44 @@
+# --- Security & Secrets (CRITICAL) ---
+.env
+.env.local
+secrets.json
+
+# --- Python Environment ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+build/
+dist/
+*.egg-info/
+
+# --- Data Management (Bioinformatics) ---
+# We want to keep the folder structure, but ignore the large data files
+data/raw/*
+data/processed/*
+data/logs/*
+
+# Exception: Keep the empty folder placeholders so git tracks the directories
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/logs/.gitkeep
+
+# Safety Net: Ignore common large bio/data formats globally
+*.fasta
+*.fna
+*.gb
+*.fastq
+*.csv
+*.xlsx
+*.zip
+*.tar.gz
+
+# --- IDE & System ---
+.DS_Store
+.vscode/
+.idea/
+*.log
