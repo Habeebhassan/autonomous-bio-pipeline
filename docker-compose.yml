@@ -9,5 +9,9 @@ services:
     # Load API keys securely
     env_file:
       - .env
+    environment:
+      - PYTHONPATH=/app
+    ports:
+      - "8501:8501"
     # Keep container running so we can execute commands
-    command: tail -f /dev/null
+    command: streamlit run src/app.py --server.address=0.0.0.0

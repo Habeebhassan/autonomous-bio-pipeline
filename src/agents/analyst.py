@@ -1,6 +1,7 @@
 import os
 import google.generativeai as genai
 from Bio import SeqIO
+import pandas as pd
 from src.utils.config import GOOGLE_API_KEY
 
 class AnalystAgent:
@@ -72,3 +73,22 @@ class AnalystAgent:
             f.write(report_content)
         
         print(f"Report generated: {self.output_file}")
+    
+    def get_stats_dataframe(self):
+        """Returns a Pandas DataFrame containing stats for all processed files."""
+        data = []
+        files = [f for f in os.listdir(self.processed_dir) if f.endswith(".fasta")]
+        
+        for filename in files:
+            filepath = os.path.join(self.processed_dir, filename)
+            for record in SeqIO.parse(filepath, "fasta"):
+                length, gc = self.calculate_stats(record.seq)
+                # Append to list
+                data.append({
+                    "Gene ID": filename.replace(".fasta", ""), # Clean name
+                    "Length (bp)": length,
+                    "GC Content (%)": gc
+                })
+        
+        # Convert list of dicts to DataFrame
+        return pd.DataFrame(data)

@@ -9,3 +9,6 @@ python-dotenv           # To load API keys from .env file securely
 # Utilities
 tqdm                    # (Optional) Progress bars for downloads/processing
 requests                # For standard HTTP requests if Biopython needs help
+
+#Frontend
+streamlit               # For building the web application interface
